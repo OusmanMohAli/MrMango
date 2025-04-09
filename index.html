@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="login-container">
+        <h2>Please Enter the Code to Access the Website</h2>
+        <input type="password" id="code" placeholder="Enter code here" />
+        <br>
+        <button onclick="checkCode()">Submit</button>
+        <p id="error-message" style="color: red; display: none;">Incorrect code. Please try again.</p>
+    </div>
+
+    <div id="content-container" style="display: none;">
+        <h1>Welcome to the Website!</h1>
+        <p>You've successfully entered the correct code.</p>
+    </div>
+
+    <script>
+        function checkCode() {
+            const codeInput = document.getElementById("code").value;
+            const correctCode = "69420";
+            const loginContainer = document.getElementById("login-container");
+            const contentContainer = document.getElementById("content-container");
+            const errorMessage = document.getElementById("error-message");
+
+            if (codeInput === correctCode) {
+                loginContainer.style.display = "none";
+                contentContainer.style.display = "block";
+            } else {
+                errorMessage.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
